@@ -1,0 +1,32 @@
+.contract {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__inner {
+        text-align: center;
+        width: 100%;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        padding: 27px 8px 21px 8px;
+        box-shadow: 0px 7px 35px rgba(9, 44, 76, 0.16);
+        border-radius: 7px;
+        margin-bottom: 16px;
+    }
+    &__title {
+        margin-bottom: 23px;
+    }
+    &__buttonbox {
+        display: flex;
+        justify-content: space-around;
+    }
+    &__btn {
+        min-width: 150px;
+        margin: 0 17px 0 17px;
+
+    }
+
+}

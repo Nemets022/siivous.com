@@ -1,0 +1,54 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px 0 rgba(38, 50, 56, 0.08);
+    padding: 15px;
+    background-color: white;
+    &__left {
+        display: flex;
+        align-items: center;
+    }
+    &__burger {
+        width: 18px;
+        height: 4px;
+        background-color: #0072ce;
+        border-radius: 4px;
+        position: relative;
+        cursor: pointer;
+        margin-right: 11px;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 4px;
+            background-color: #0072ce;
+            border-radius: 4px;
+        }
+        &::before {
+            top: 5.5px;
+        }
+        &::after {
+            bottom: 6px;
+        }
+    }
+    &__logo {
+        a {
+            font-family: "AvenirNext";
+            color: #0072ce;
+            line-height: 36px;
+            font-size: 24px;
+        }
+    }
+    &__right {
+        display: flex;
+        align-items: center;
+    }
+    &__cart, &__login {
+        width: 24px;
+        height: 24px;
+    }
+    &__cart {
+        margin-right: 12px;
+    }
+}

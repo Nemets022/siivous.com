@@ -1,5 +1,5 @@
 //@ts-nocheck
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { IInputs, IRootReducer } from '../../interface/interface'
 import classNames from 'classnames'
 
@@ -10,10 +10,7 @@ export const Inputs: React.FC<IInputs> = ({ options, placeholder, error, type, i
     const dispatch = useDispatch()
     const valueData = useSelector(({ valueData }: IRootReducer) => valueData[valueType])
     const [selectOptions, setSelectOptions] = useState(0)
-    const ref = useRef(null)
-    console.log(ref);
-    
-    const changeInputHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    const changeInputHandler: React.ChangeEventHandler = (e) => {
         if (e.target.value.length >= 5) {
             dispatch({ type: 'ADD_VALUE', payload: { id, actionType, string: e.target.value, placeholder, dataType, valueType } })
             dispatch({ type: 'SUCCES', payload: { id, actionType, dataType } })
@@ -42,19 +39,29 @@ export const Inputs: React.FC<IInputs> = ({ options, placeholder, error, type, i
             setSelectOptions(index)
         }
     }
+    const findValueArray = valueData[actionType].filter((item) => item.id === id)[0]
+
     const generateInput = () => {
         if (type === 'number') {
             return (
                 <>
-                    <input onChange={(e) => changeInputHandler(e)} value={valueData[actionType].length >= 1 && valueData[actionType][0].string} type={type} placeholder={placeholder} />
+                    <input
+                        className={classNames( { 'error': error })}
+                        onChange={(e) => changeInputHandler(e)}
+                        value={findValueArray ? findValueArray.string : ''}
+                        type={type}
+                        placeholder={placeholder} />
                     {error && <span>Error !</span>}
                 </>
             )
         } else if (type === 'text') {
             return (
                 <>
-                    <input onChange={(e) => changeInputHandler(e)} value={valueData[actionType].length >= 1 && valueData[actionType][0].string} type={type} placeholder={placeholder} />
-                    {error && <span>Error !</span>}
+                    <input
+                        onChange={(e) => changeInputHandler(e)}
+                        value={findValueArray ? findValueArray.string : ''}
+                        type={type}
+                        placeholder={placeholder} />
                 </>
             )
         } else {
@@ -62,11 +69,17 @@ export const Inputs: React.FC<IInputs> = ({ options, placeholder, error, type, i
                 <>
                     <div
                         className={classNames('checkInput')}>
-                        <div onClick={(e) => onSelectHandler(e)}  className={classNames('checkInput__title', { 'selected': select ? true : false })}>{placeholder}</div>
+                        <div
+                            onClick={(e) => onSelectHandler(e)}
+                            className={classNames('checkInput__title', { 'selected': select, 'no-arrow': options?.length === 0 })}>{placeholder}</div>
                         <ul>
                             {select && options!.map((item, index) => {
                                 return (
-                                    <li key={index} onClick={(e) => onSelectOptionHandler(e, index)} id={item} className={classNames({ 'selectOptions': index === selectOption })}>{item}</li>
+                                    <li
+                                        key={index}
+                                        onClick={(e) => onSelectOptionHandler(e, index)}
+                                        id={item}
+                                        className={classNames({ 'selectOptions': index === selectOption })}>{item}</li>
                                 )
                             })}
                         </ul>
@@ -77,7 +90,7 @@ export const Inputs: React.FC<IInputs> = ({ options, placeholder, error, type, i
     }
 
     return (
-        <div className={classNames('Input', { 'error': error })}>
+        <div className={classNames('Input')}>
             {generateInput()}
         </div>
     )

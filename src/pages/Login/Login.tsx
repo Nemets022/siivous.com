@@ -10,7 +10,7 @@ export const Login = () => {
             <img src={loginPng} alt="" />
         </div>
         <div className="login__title"><h6>To continue:</h6></div>
-        {<Link to='/login'><button className="login__btn btn">Login</button></Link>}
+        {<Link to='/auth'><button className="login__btn btn">Login</button></Link>}
         {<Link to='/'><button className="login__btn btn">Fill basic info</button></Link>}
     </div>
     )

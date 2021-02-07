@@ -1,12 +1,12 @@
 import React from 'react';
 import { Contract, Header } from './components'
 import { Switch, Route } from 'react-router-dom'
-import { Home, Login } from './pages'
+import { Home, Login, SignIn } from './pages'
 import { useSelector } from 'react-redux';
-import { IRootReducer } from './interface/interface';
+import { RootReducer } from './redux/reducers/rootReducer';
 function App() {
 
-  const dataMain = useSelector(({ data }: IRootReducer) => data)
+  const dataMain = useSelector(({ data }: RootReducer) => data)
   return (
     <div className="App">
       <Header />
@@ -16,6 +16,7 @@ function App() {
           <Route path='/contract' render={() => <Contract dataMain={dataMain.contractualData} dataType={'contractualData'} valueType={'contractual'} />} />
           <Route path='/onetime' render={() => <Contract dataMain={dataMain.oneTimeData} dataType={'oneTimeData'} valueType={'oneTime'} />} />
           <Route path='/login' component={Login} />
+          <Route path='/auth' component={SignIn} />
         </Switch>
       </div>
     </div>

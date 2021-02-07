@@ -179,15 +179,6 @@ export interface IDataActions extends IActions {
     }
 }
 
-
-export interface IRootReducer {
-    valueData: {
-        contractual: IContractualReducer,
-        oneTime: IOneTimeReducer,
-    }
-    data: IDataReducer
-}
-
 export interface IDataReducer {
     contractualData: IContract[],
     oneTimeData: IOneTime[]

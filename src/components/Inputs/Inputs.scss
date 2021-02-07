@@ -4,7 +4,22 @@ input {
     border-radius: 4px;
     border: 1px solid #bdbdbd;
     width: 100%;
-    &[type="number"], &[type="text"] {
+    &[type="number"],
+    &[type="text"],
+    &[type="password"] {
+        &.error {
+                border-color: red;
+                &[type="text"],
+                &::placeholder {
+                    color: red;
+                }
+            ~span {
+                position: absolute;
+                display: block;
+                text-align: left;
+                color: red;
+            }
+        }
         padding: 16px;
         margin-bottom: 12px;
     }
@@ -65,6 +80,16 @@ input {
                 margin-top: 16px;
             }
         }
+        &.no-arrow {
+            &::after {
+                background-image: none;
+            }
+            & ~ ul {
+                opacity: 0;
+                height: 0;
+                margin-top: 0;
+            }
+        }
     }
 
     ul {
@@ -102,20 +127,5 @@ input {
                 }
             }
         }
-    }
-}
-.error {
-    input {
-        border-color: red;
-        &[type="text"],
-        &::placeholder {
-            color: red;
-        }
-    }
-    span {
-        position: absolute;
-        display: block;
-        text-align: left;
-        color: red;
     }
 }

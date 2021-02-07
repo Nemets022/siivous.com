@@ -5,3 +5,6 @@ export const rootReducer = combineReducers({
     valueData,
     data
 })
+
+
+export type RootReducer = ReturnType<typeof rootReducer>

@@ -68,7 +68,19 @@ const initialState: IDataReducer = {
                 { id: 8, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Hobby rooms', options: ['5 times/week', '2 times/week', '1 times/week'] },
                 { id: 9, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Other', options: ['5 times/week', '2 times/week', '1 times/week'] },
             ]
-        }
+        }, 
+        {
+            id: 7,
+            title: 'Optional info:',
+            disabled: true,
+            actionType: 'optionalInfo',
+            inputs: [
+                { id: 1, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Cleaning time', options: [] },
+                { id: 2, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: "Start date for contract", options: ['45 days from today', '25 days from today', '15 days from today'] },
+                { id: 3, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Offer open', options: ['14 days', '24 days', '32 days'] },
+                { id: 4, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Attachments', options: [] },
+            ]
+        },
     ],
     oneTimeData: [
         {
@@ -107,8 +119,8 @@ const initialState: IDataReducer = {
             actionType: 'windowCleaning',
             inputs: [
                 { id: 1, select: false, selectOption: 0, type: 'text', error: false, placeholder: 'Amount of windows' },
-                { id: 2, select: false, selectOption: 0, type: 'text', error: false, placeholder: 'Total size of windows surface'},
-                { id: 3, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Blinds', options: ['3 floors per stairway', '2 floors per stairway', '1 floors per stairway'] },
+                { id: 2, select: false, selectOption: 0, type: 'text', error: false, placeholder: 'Total size of windows surface' },
+                { id: 3, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Blinds', options: [] },
                 { id: 4, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Is lift required?', options: ['3 floors per stairway', '2 floors per stairway', '1 floors per stairway'] },
             ]
         },
@@ -128,7 +140,7 @@ const initialState: IDataReducer = {
             disabled: true,
             actionType: 'fittedCarpetCleaning',
             inputs: [
-                { id: 1, select: false, selectOption: 0, type: 'text', error: false, placeholder: 'Square meters'},
+                { id: 1, select: false, selectOption: 0, type: 'text', error: false, placeholder: 'Square meters' },
                 { id: 2, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Clearing work area', options: ['Ongoing cleaning', 'Cleanup after site ready'] },
             ]
         },
@@ -138,10 +150,10 @@ const initialState: IDataReducer = {
             disabled: true,
             actionType: 'optionalInfo',
             inputs: [
-                { id: 1, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Cleaning time', options: ['5 times/week', '2 times/week', '1 times/week'] },
-                { id: 2, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Start date for contract', options: ['5 times/week', '2 times/week', '1 times/week'] },
-                { id: 3, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Offer open', options: ['5 times/week', '2 times/week', '1 times/week'] },
-                { id: 4, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Attachments', options: ['5 times/week', '2 times/week', '1 times/week'] },
+                { id: 1, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Cleaning time', options: [] },
+                { id: 2, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: "Start date for contract", options: ['45 days from today', '25 days from today', '15 days from today'] },
+                { id: 3, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Offer open', options: ['14 days', '24 days', '32 days'] },
+                { id: 4, select: false, selectOption: 0, type: 'checkbox', error: false, placeholder: 'Attachments', options: [] },
             ]
         }
     ]
